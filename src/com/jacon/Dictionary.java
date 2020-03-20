@@ -4,7 +4,7 @@ final class Dictionary
 {
     // Fields
 
-    private String key;
+    String key;
 
     private String value;
 

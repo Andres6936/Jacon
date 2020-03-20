@@ -40,9 +40,10 @@ final class Convert
         extractCommentHead();
         deleteComments();
         deleteLinesEmpty();
-        mergeTags();
+        mergeLinesSeparates();
         fillDictionaryList();
         deleteCharacterUnused();
+        createTags();
     }
 
     private void extractCommentHead()
@@ -88,7 +89,7 @@ final class Convert
         }
     }
 
-    private void mergeTags()
+    private void mergeLinesSeparates()
     {
         for ( int i = 0; i < buffer.size( ); i++ )
         {
@@ -182,5 +183,47 @@ final class Convert
             word.deleteCharacterInKey( '(' );
             word.deleteCharacterInKey( ')' );
         }
+    }
+
+    private void createTags()
+    {
+        for (Dictionary word : dictionaryList)
+        {
+            if (haveXWords( 5, word.key ))
+            {
+
+            }
+            else if (haveXWords( 4, word.key ))
+            {
+
+            }
+            else if (haveXWords( 3, word.key ))
+            {
+
+            }
+            else if (haveXWords( 2, word.key ))
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    private boolean haveXWords(int x, String string)
+    {
+        int counterSpaceBlank = 0;
+
+        for ( int i = 0; i < string.length(); i++ )
+        {
+            if (string.charAt( i ) == ' ')
+            {
+                counterSpaceBlank += 1;
+            }
+        }
+
+        return counterSpaceBlank >= x - 1;
     }
 }
