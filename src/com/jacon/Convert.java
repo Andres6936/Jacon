@@ -166,7 +166,12 @@ final class Convert
     {
         for (Dictionary word : dictionaryList)
         {
+            word.deleteStringInKey( "msgid " );
+            word.deleteStringInValue( "msgstr " );
+            word.deleteStringInKey( "\\n" );
+            word.deleteStringInValue( "\\n" );
             word.deleteCharacterInKey( '"' );
+            word.deleteCharacterInValue( '"' );
             word.deleteCharacterInKey( '.' );
             word.deleteCharacterInKey( '?' );
             word.deleteCharacterInKey( ':' );

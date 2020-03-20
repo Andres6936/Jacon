@@ -4,9 +4,9 @@ final class Dictionary
 {
     // Fields
 
-    public String key;
+    private String key;
 
-    public String value;
+    private String value;
 
     // Construct
 
@@ -18,8 +18,23 @@ final class Dictionary
 
     // Methods
 
-    public void deleteCharacterInKey(char character)
+    void deleteCharacterInKey( char character )
     {
         key = key.replace( character, '\0' );
+    }
+
+    void deleteCharacterInValue(char character)
+    {
+        value = value.replace( character, '\0' );
+    }
+
+    void deleteStringInKey(String string)
+    {
+        key = key.replace( string, "\0" );
+    }
+
+    void deleteStringInValue(String string)
+    {
+        value = value.replace( "msgstr ", "\0" );
     }
 }
