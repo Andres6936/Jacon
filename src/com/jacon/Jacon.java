@@ -28,7 +28,7 @@ final class Jacon
         ProcessMultiplesFiles();
     }
 
-    void ProcessSingleFile()
+    private void ProcessSingleFile( )
     {
         if (filename.exists() && filename.isFile())
         {
@@ -40,7 +40,7 @@ final class Jacon
         }
     }
 
-    void ProcessMultiplesFiles()
+    private void ProcessMultiplesFiles( )
     {
         if (directory.exists() && directory.isDirectory())
         {
