@@ -25,14 +25,14 @@ final class Jacon
         }
 
         ProcessSingleFile();
-        ProcessMultiplesFiles();
+        //ProcessMultiplesFiles();
     }
 
     private void ProcessSingleFile( )
     {
         if (filename.exists() && filename.isFile())
         {
-            Convert.convertXML( filename );
+            new Convert().convertXML( filename );
         }
         else
         {
@@ -52,7 +52,7 @@ final class Jacon
             {
                 if (file.getPath().endsWith( ".po" ))
                 {
-                    Convert.convertXML( file );
+                    new Convert().convertXML( file );
                 }
             }
         }
