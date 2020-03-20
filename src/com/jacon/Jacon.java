@@ -50,7 +50,10 @@ final class Jacon
 
             for (File file : files)
             {
-                Convert.convertXML( file );
+                if (file.getPath().endsWith( ".po" ))
+                {
+                    Convert.convertXML( file );
+                }
             }
         }
         else
