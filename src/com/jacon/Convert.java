@@ -175,6 +175,7 @@ final class Convert
             word.deleteCharacterInKey( '"' );
             word.deleteCharacterInValue( '"' );
             word.deleteCharacterInKey( '.' );
+            word.deleteCharacterInKey( ';' );
             word.deleteCharacterInKey( '?' );
             word.deleteCharacterInKey( ':' );
             word.deleteCharacterInKey( '/' );
@@ -196,19 +197,19 @@ final class Convert
             }
             else if (haveXWords( 4, word.key ))
             {
-
+                word.setKey( generateKeyOfXWords( 4, word.key ) );
             }
             else if (haveXWords( 3, word.key ))
             {
-
+                word.setKey( generateKeyOfXWords( 3, word.key ) );
             }
             else if (haveXWords( 2, word.key ))
             {
-
+                word.setKey( generateKeyOfXWords( 2, word.key ) );
             }
             else
             {
-
+                word.setKey( capitalizeWord( word.key ) );
             }
         }
     }
