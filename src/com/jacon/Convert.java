@@ -1,5 +1,6 @@
 package com.jacon;
 
+import java.util.Arrays;
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
@@ -191,7 +192,7 @@ final class Convert
         {
             if (haveXWords( 5, word.key ))
             {
-
+                word.setKey( generateKeyOfXWords( 5, word.key ) );
             }
             else if (haveXWords( 4, word.key ))
             {
@@ -225,5 +226,50 @@ final class Convert
         }
 
         return counterSpaceBlank >= x - 1;
+    }
+
+    private String generateKeyOfXWords(int x, String key)
+    {
+        Vector<String> words = new Vector( Arrays.asList( key.split( "\\s" ) ) );
+
+        while (words.size() > x)
+        {
+            int positionWordMoreShorter = 0;
+            int sizeWordMoreShorter = words.get( 0 ).length();
+
+            for ( int i = 1; i < words.size( ); i++ )
+            {
+                if (words.get( i ).length() < sizeWordMoreShorter)
+                {
+                    positionWordMoreShorter = i;
+                    sizeWordMoreShorter = words.get( i ).length();
+                }
+            }
+
+            words.remove( positionWordMoreShorter );
+        }
+
+        StringBuilder newKey = new StringBuilder( 69 );
+
+        for(String word: words)
+        {
+            newKey.append( capitalizeWord( word ) ) ;
+        }
+
+        return newKey.toString();
+    }
+
+    private String capitalizeWord(String string)
+    {
+        char[] buffer = string.toCharArray();
+
+        for ( int i = 0; i < buffer.length; i++ )
+        {
+            buffer[i] = Character.toLowerCase( buffer[i] );
+        }
+
+        buffer[0] = Character.toUpperCase( buffer[0] );
+
+        return new String( buffer );
     }
 }

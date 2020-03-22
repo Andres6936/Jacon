@@ -37,4 +37,11 @@ final class Dictionary
     {
         value = value.replace( "msgstr ", "\0" );
     }
+
+    // Setters
+
+    public void setKey( String key )
+    {
+        this.key = key;
+    }
 }
