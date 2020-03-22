@@ -6,7 +6,7 @@ final class Dictionary
 
     String key;
 
-    private String value;
+    String value;
 
     // Construct
 

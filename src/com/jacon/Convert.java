@@ -1,5 +1,7 @@
 package com.jacon;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.util.Arrays;
 import java.util.List;
 import java.io.File;
@@ -8,7 +10,7 @@ import java.nio.file.Files;
 import java.lang.StringBuilder;
 import java.util.Vector;
 
-final class Convert
+final class Convert extends WriterXML
 {
     // Fields
 
@@ -45,6 +47,15 @@ final class Convert
         fillDictionaryList();
         deleteCharacterUnused();
         createTags();
+
+        try
+        {
+            writer( dictionaryList );
+        }
+        catch ( ParserConfigurationException | TransformerException e )
+        {
+            e.printStackTrace( );
+        }
     }
 
     private void extractCommentHead()
