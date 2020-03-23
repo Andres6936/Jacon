@@ -19,6 +19,10 @@ final class Convert extends WriterXML
 
     private String commentHead;
 
+    private String license;
+
+    private String metadata;
+
     // Construct
 
     Convert( )
@@ -45,6 +49,8 @@ final class Convert extends WriterXML
         mergeLinesSeparates( );
         fillDictionaryList( );
         deleteCharacterUnused( );
+        extractMetadata( );
+        extractLicense( );
         createTags( );
 
         try
@@ -74,6 +80,30 @@ final class Convert extends WriterXML
         }
 
         commentHead = stringBuilder.toString( );
+    }
+
+    private void extractLicense( )
+    {
+        StringBuilder stringBuilder = new StringBuilder( );
+
+        // The license is divided in three parts
+        for ( int i = 0; i < 3; i++ )
+        {
+            buffer.remove( 0 );
+            stringBuilder.append( buffer.remove( 0 ) );
+        }
+
+        license = stringBuilder.toString( );
+    }
+
+    private void extractMetadata( )
+    {
+        StringBuilder stringBuilder = new StringBuilder( );
+
+        buffer.remove( 0 );
+        stringBuilder.append( buffer.remove( 0 ) );
+
+        metadata = stringBuilder.toString( );
     }
 
     private void deleteComments( )
