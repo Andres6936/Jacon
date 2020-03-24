@@ -20,27 +20,27 @@ final class Dictionary
 
     void deleteCharacterInKey( char character )
     {
-        key = key.replace( character, '\0' );
+        key = key.replace( String.valueOf( character ), "" );
     }
 
     void deleteCharacterInValue(char character)
     {
-        value = value.replace( character, '\0' );
+        value = value.replace( String.valueOf( character ), "" );
     }
 
     void deleteStringInKey(String string)
     {
-        key = key.replace( string, "\0" );
+        key = key.replace( string, "" );
     }
 
     void deleteStringInValue(String string)
     {
-        value = value.replace( "msgstr ", "\0" );
+        value = value.replace( "msgstr ", "" );
     }
 
     // Setters
 
-    public void setKey( String key )
+    void setKey( String key )
     {
         this.key = key;
     }
