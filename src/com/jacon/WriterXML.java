@@ -23,6 +23,7 @@ class WriterXML
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.newDocument();
+        document.setStrictErrorChecking( false );
 
         Element root = document.createElement( "LanguageInject" );
         document.appendChild( root );

@@ -47,10 +47,10 @@ final class Convert extends WriterXML
         deleteComments( );
         deleteLinesEmpty( );
         mergeLinesSeparates( );
-        fillDictionaryList( );
-        deleteCharacterUnused( );
         extractMetadata( );
         extractLicense( );
+        fillDictionaryList( );
+        deleteCharacterUnused( );
         createTags( );
 
         try
@@ -214,6 +214,7 @@ final class Convert extends WriterXML
             word.deleteStringInValue( "\\n" );
             word.deleteCharacterInKey( '"' );
             word.deleteCharacterInValue( '"' );
+            word.deleteCharacterInKey( '-' );
             word.deleteCharacterInKey( '.' );
             word.deleteCharacterInKey( ';' );
             word.deleteCharacterInKey( '?' );
