@@ -25,7 +25,7 @@ final class Jacon
         }
 
         ProcessSingleFile();
-        //ProcessMultiplesFiles();
+        ProcessMultiplesFiles( );
     }
 
     private void ProcessSingleFile( )

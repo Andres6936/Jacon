@@ -229,6 +229,7 @@ final class Convert extends WriterXML
             word.deleteCharacterInKey( '(' );
             word.deleteCharacterInKey( ')' );
             word.deleteCharacterInKey( '|' );
+            word.deleteCharacterInKey( '*' );
         }
     }
 
