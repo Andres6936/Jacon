@@ -212,12 +212,15 @@ final class Convert extends WriterXML
             word.deleteStringInValue( "msgstr " );
             word.deleteStringInKey( "\\n" );
             word.deleteStringInValue( "\\n" );
-            word.deleteCharacterInKey( '"' );
-            word.deleteCharacterInValue( '"' );
+            word.deleteCharacterInKey( '\"' );
+            word.deleteCharacterInKey( '\'' );
             word.deleteCharacterInKey( '-' );
+            word.deleteCharacterInKey( '_' );
             word.deleteCharacterInKey( '.' );
+            word.deleteCharacterInKey( ',' );
             word.deleteCharacterInKey( ';' );
             word.deleteCharacterInKey( '?' );
+            word.deleteCharacterInKey( '%' );
             word.deleteCharacterInKey( ':' );
             word.deleteCharacterInKey( '/' );
             word.deleteCharacterInKey( '\\' );
@@ -225,6 +228,7 @@ final class Convert extends WriterXML
             word.deleteCharacterInKey( '>' );
             word.deleteCharacterInKey( '(' );
             word.deleteCharacterInKey( ')' );
+            word.deleteCharacterInKey( '|' );
         }
     }
 
@@ -310,7 +314,7 @@ final class Convert extends WriterXML
             buffer[ i ] = Character.toLowerCase( buffer[ i ] );
         }
 
-        buffer[ 0 ] = Character.toUpperCase( buffer[ 0 ] );
+        if ( buffer.length > 0 ) buffer[ 0 ] = Character.toUpperCase( buffer[ 0 ] );
 
         return new String( buffer );
     }
